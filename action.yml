@@ -1,0 +1,17 @@
+name: "Lavender Dir Listing"
+description: "Github Action to generate directory listing index for Github Pages"
+
+author: "Acan"
+branding:
+  color: "red"
+  icon: "upload-cloud"
+
+inputs:
+  FOLDER:
+    description: "Folder to Start Index Generations"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.FOLDER }}
