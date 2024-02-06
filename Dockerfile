@@ -8,6 +8,7 @@ RUN apk add --no-cache bash
 COPY entrypoint.sh /entrypoint.sh
 COPY main.py /main.py
 COPY requirements.txt /requirements.txt
+COPY template.html /template.html
 
 RUN chmod +x /entrypoint.sh
 RUN pip install -r requirements.txt
