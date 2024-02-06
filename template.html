@@ -2,11 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <meta name = "author" content = "Acan">
+    <meta name = "keywords" content = "Directory, List">
+    <meta name = "description" content = "GitHub Repo Dir Listing">
+
+    <meta property="og:description" content="GitHub Repo Dir Listing">
+    <meta property="og:image" content="https://zeyu-xie.github.io/Myosotis-Config/web/Scholar-Lite/favicon.ico">
+    <meta property="og:title" content="Lavender Dir Listing">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <meta name="theme-color" content="#ffffff">
+    
+    <meta name="apple-mobile-web-app-title" content="Lavender Dir Listing">
+    <meta name="msapplication-TileColor" content="#ffffff">    
+    
+    <meta name="robots" content="index, follow">
+
+    <meta content="always" name="referrer">
+
+    <link rel="apple-touch-icon" href="https://zeyu-xie.github.io/Myosotis-Config/web/Scholar-Lite/favicon.ico">
+    <link rel="icon" href="https://zeyu-xie.github.io/Myosotis-Config/web/Scholar-Lite/favicon.ico">
+
+    <title>Lavender Dir Listing</title>
+
+    <link rel="stylesheet" href="https://zeyu-xie.github.io/Myosotis-Config/web/Scholar-Lite/index.css">
+
 </head>
 <body>
-    <h1>{{ title }}</h1>
+
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+
     <ul>
         {% for item in list %}
             <li>
@@ -14,5 +43,19 @@
             </li>
         {% endfor %}
     </ul>
+
+    <footer>
+        <p>
+            ©️ <time class="current_year">[Current Year]</time> <a href="https://zeyu-xie.github.io/Acan"
+                class="author">[Author]</a>. All rights reserved.
+        </p>
+        <nav>
+            <a href="mailto:xie.zeyu20@gmail.com">Email</a> |
+            <a href="https://github.com/zeyu-xie">GitHub</a>
+        </nav>
+    </footer>
+
+    <script src="https://zeyu-xie.github.io/Myosotis-Config/web/Scholar-Lite/index.js"></script>
+
 </body>
 </html>
