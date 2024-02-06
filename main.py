@@ -44,7 +44,7 @@ def dfs(path):
 if __name__ == "__main__":
 
     # 读取模板文件
-    with open('template.html', 'r') as file:
+    with open('/template.html', 'r') as file:
         template = Template(file.read())
 
     if len(sys.argv) > 1:
