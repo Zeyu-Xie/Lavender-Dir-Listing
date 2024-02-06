@@ -19,7 +19,6 @@ def dfs(path):
         "list": []
     }
 
-
     file_path = os.path.abspath(os.path.join(root_file_path, path))
     page_path = os.path.join(os.path.join(root_page_path, path), "index.html")
 
@@ -32,13 +31,11 @@ def dfs(path):
         file_path_ = os.path.join(file_path, item)
         page_path_ = os.path.join(os.path.join(root_page_path, path), item)
         path_ = os.path.join(path, item)
-        list.append(list)
+        data["list"].append(item)
 
         if os.path.isfile(file_path_):
             shutil.copy(file_path_, page_path_)
-            # write_file(page_path, f"<a href=\"./{item}\">{item}</a>"+"\n")
         elif os.path.isdir(file_path_):
-            # write_file(page_path, f"<a href=\"./{item}\">{item}</a>"+"\n")
             os.mkdir(page_path_)
             dfs(path_)
     
@@ -50,11 +47,7 @@ if __name__ == "__main__":
     with open('template.html', 'r') as file:
         template = Template(file.read())
 
-    # 创建Jinja2模板对象
     if len(sys.argv) > 1:
-
-        list = os.listdir(sys.argv[1])
-        print(list)
         
         root_file_path = sys.argv[1]
         dfs("")
