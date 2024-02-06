@@ -73,3 +73,11 @@ jobs:
         uses: actions/deploy-pages@v1          
 ```
 
+## Input
+
+The ```With``` property supports following items.
+
+| Item         | Explaination                       | Example            | Default |
+| ------------ | ---------------------------------- | ------------------ | ------- |
+| ```FOLDER``` | Directory to Generate the Artifact | ```FOLDER: docs``` | ```.``` |
+

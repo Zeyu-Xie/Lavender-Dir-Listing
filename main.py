@@ -15,6 +15,7 @@ def write_file(path, content):
 def dfs(path):
 
     data = {
+        "repoName": "Lavender Dir Listing",
         "title": os.path.basename(path),
         "list": []
     }
@@ -43,7 +44,6 @@ def dfs(path):
 
 if __name__ == "__main__":
 
-    # 读取模板文件
     with open('/template.html', 'r') as file:
         template = Template(file.read())
 
