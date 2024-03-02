@@ -1,5 +1,9 @@
 # Lavender Dir Listing
 
+## Template
+
+You can set [Lavender List Repo](https://github.com/Zeyu-Xie/Lavender-List-Repo) as the GitHub template repository.
+
 ## Quick Start
 
 Add this code to your ```.github/workflows/[your workflow name].yml```
