@@ -7,28 +7,29 @@ branding:
   icon: "upload-cloud"
 
 inputs:
-  SOURCE:
-    description: "Folder to list files from."
-    required: false
-    default: "."
   FOLDER:
-    description: "Folder to save the listing."
-    required: false
-    default: "./dict"
+    description: "Folder to list files from."
+    required: true
 runs:
   using: "composite"
   steps:
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    - name: "Set up Python"
+      uses: "actions/setup-python@v4"
       with:
         python-version: "3.x"
 
-    - name: Install dependencies
-      shell: bash
+    - name: "Install dependencies"
+      shell: "bash"
       run: |
         python3 -m pip install --upgrade pip
-        pip install beautifulsoup4==4.12.3 PyYAML==6.0.2 soupsieve==2.6 \
+        pip install -r requirements.txt
 
-    - name: Run Python script
-      shell: bash
-      run: python3 index.py
+    - name: "Run Python script"
+      shell: "bash"
+      run: "python3 index.py"
+
+    - name: Upload Pages Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: github-pages
+        path: dict/
