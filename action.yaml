@@ -22,6 +22,9 @@ runs:
       shell: "bash"
       run: |
         python3 -m pip install --upgrade pip
+        pwd
+        ls -a
+        cd ..
         ls -a
         pip install -r requirements.txt
 
