@@ -27,7 +27,7 @@ runs:
       shell: bash
       run: |
         python3 -m pip install --upgrade pip
-        pip install -r ./requirements.txt
+        pip install beautifulsoup4==4.12.3 PyYAML==6.0.2 soupsieve==2.6 \
 
     - name: Run Python script
       shell: bash
