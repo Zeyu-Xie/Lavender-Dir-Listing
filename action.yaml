@@ -9,20 +9,17 @@ branding:
 inputs:
   EMAIL:
     description: "Email of the user."
-    required: false
-    default: ""
+    required: true
   FOLDER:
     description: "Path to list files from."
     required: false
     default: "."
-  WEBSITE_URL:
-    description: "The user's website URL."
-    required: false
-    default: ""
   WEBSITE_NAME:
     description: "The user's website name."
-    required: false
-    default: "Website"
+    required: true
+  WEBSITE_URL:
+    description: "The user's website URL."
+    required: true
 
 runs:
   using: "composite"
