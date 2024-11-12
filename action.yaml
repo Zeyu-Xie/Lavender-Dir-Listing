@@ -17,10 +17,10 @@ runs:
   steps:
     - name: "Run Docker Image"
       shell: "bash"
-      run: "docker run -v ${{ inputs.FOLDER }}:/source -v ./dict:/folder acanxie/lavender-dir-listing:1.0.0"
+      run: "docker run -v ${{ inputs.FOLDER }}:/source -v /dict:/folder acanxie/lavender-dir-listing:1.0.0"
 
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
       with:
         name: github-pages
-        path: "./dict"
+        path: "/dict"
