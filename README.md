@@ -4,18 +4,13 @@ A GitHub workflow for listing repositories' files.
 
 ## Usage
 
-Lavender-Dir-Listing requires two parameters: `FROM` and `DESTINATION`.
-
-`FROM` specifies the directory to list files from.
-
-`DESTINATION` specifies where to save the listing.
+Lavender-Dir-Listing requires one parameter: `FOLDER`. This parameter specifies the directory to list files from.
 
 ```yaml
 - name: Generate Directory Listings
   uses: Zeyu-Xie/Lavender-Dir-Listing@[version]
   with:
-    FROM: [From which directory to list files]
-    DESTINATION: [Where to save the listing]
+    FOLDER: [Listed Folder]
 ```
 
 ## Dependencies
