@@ -12,10 +12,10 @@ Lavender-Dir-Listing requires two parameters: `FROM` and `DESTINATION`.
 
 ```yaml
 - name: Generate Directory Listings
-    uses: Zeyu-Xie/Lavender-Dir-Listing@[version]
-    with:
-        FROM: [From which directory to list files]
-        DESTINATION: [Where to save the listing]
+  uses: Zeyu-Xie/Lavender-Dir-Listing@[version]
+  with:
+    FROM: [From which directory to list files]
+    DESTINATION: [Where to save the listing]
 ```
 
 ## Dependencies
