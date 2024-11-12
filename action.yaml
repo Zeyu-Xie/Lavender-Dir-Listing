@@ -9,7 +9,8 @@ branding:
 inputs:
   FOLDER:
     description: "Folder to list files from."
-    required: true
+    required: false
+    default: "."
 
 runs:
   using: "composite"
