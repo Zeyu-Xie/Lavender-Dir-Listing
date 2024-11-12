@@ -7,10 +7,22 @@ branding:
   icon: "upload-cloud"
 
 inputs:
+  EMAIL:
+    description: "Email of the user."
+    required: false
+    default: ""
   FOLDER:
     description: "Path to list files from."
     required: false
     default: "."
+  WEBSITE_URL:
+    description: "The user's website URL."
+    required: false
+    default: ""
+  WEBSITE_NAME:
+    description: "The user's website name."
+    required: false
+    default: "Website"
 
 runs:
   using: "composite"
@@ -20,7 +32,12 @@ runs:
         FROM: ${{ inputs.FOLDER }}
         DESTINATION: "/.lavender_dir_listing"
       shell: "bash"
-      run: "docker run -v ${{ env.FROM }}:/source -v ${{ env.DESTINATION }}:/folder acanxie/lavender-dir-listing:1.1.0"
+      run: |
+        docker run 
+        -v ${{ env.FROM }}:/source -v ${{ env.DESTINATION }}:/folder acanxie/lavender-dir-listing:1.1.0
+        ${{ inputs.EMAIL }}
+        ${{ inputs.WEBSITE_NAME }}
+        ${{ inputs.WEBSITE_URL }}
 
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v1

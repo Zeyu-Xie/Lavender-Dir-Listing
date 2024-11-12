@@ -1,11 +1,17 @@
 import os
 import shutil
+import sys
 from jinja2 import Template
 
 def get_template():
     with open(os.path.join(os.path.dirname(__file__), "template.html"), "r") as f:
         return f.read()
 tp = Template(get_template())
+
+# Parameters
+email = sys.argv[1]
+website_name = sys.argv[2]
+website_url = sys.argv[3]
 
 # func: Determine if a folder has an index.html file
 def have_index_html(path):
@@ -16,11 +22,23 @@ def have_index_html(path):
 
 # func: Construct pages
 def page_construct(path, relpath):
+
+    global tp
+    global email, website
+
+    title = f"Index of {relpath}"
     item_list = []
     for item in os.listdir(path):
         if item != "index.html":
             item_list.append(item)
-    return tp.render(title=relpath, item_list=item_list)
+    return tp.render(
+            email = email, 
+            title = title, 
+            relpath=relpath, 
+            item_list=item_list, 
+            website_name=website_name,
+            website_url=website_url
+        )
 
 # func: dfs
 def dfs(prp, relpath):
