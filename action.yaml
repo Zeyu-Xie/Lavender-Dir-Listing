@@ -7,17 +7,21 @@ branding:
   icon: "upload-cloud"
 
 inputs:
-  FOLDER:
+  FROM:
     description: "Folder to list files from."
     required: false
     default: "."
+  DESTINATION:
+    description: "Folder to save the result."
+    required: false
+    default: "/dict"
 
 runs:
   using: "composite"
   steps:
     - name: "Run Docker Image"
       shell: "bash"
-      run: "docker run -v ${{ inputs.FOLDER }}:/source -v /dict:/folder acanxie/lavender-dir-listing:1.0.0"
+      run: "docker run -v ${{ inputs.FROM }}:/source -v ${{ inputs.DESTINATION }}:/folder acanxie/lavender-dir-listing:1.0.0"
 
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
