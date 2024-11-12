@@ -1,43 +1,28 @@
 import os
 import shutil
-import bs4
+from jinja2 import Template
 
-# Determine if a folder has an index.html file
+def get_template():
+    with open(os.path.join(os.path.dirname(__file__), "template.html"), "r") as f:
+        return f.read()
+tp = Template(get_template())
 
-
+# func: Determine if a folder has an index.html file
 def have_index_html(path):
     if os.path.isdir(path):
         if "index.html" in os.listdir(path):
             return True
     return False
 
-# Construct pages
-
-
+# func: Construct pages
 def page_construct(path, relpath):
-    page = bs4.BeautifulSoup(
-        "<html><head><title>Index</title></head><body></body></html>", "html.parser")
-    # back
-    back = page.new_tag("a", href="../")
-    back.string = "Back"
-    page.body.append(back)
-    # title
-    title = page.new_tag("h1")
-    title.string = relpath
-    page.body.append(title)
-    # ul
-    ul = page.new_tag("ul")
+    item_list = []
     for item in os.listdir(path):
         if item != "index.html":
-            li = page.new_tag("li")
-            a = page.new_tag("a", href=f"./{item}")
-            a.string = item
-            li.append(a)
-            ul.append(li)
-    page.body.append(ul)
-    return page
+            item_list.append(item)
+    return tp.render(title=relpath, item_list=item_list)
 
-
+# func: dfs
 def dfs(prp, relpath):
 
     path = os.path.join(prp, relpath)
@@ -53,7 +38,7 @@ def dfs(prp, relpath):
         if os.path.isdir(os.path.join(path, item)):
             dfs(prp, os.path.join(relpath, item))
 
-
+# func: main
 def main(source, folder):
 
     # Copy all files and folders to the pages root path
