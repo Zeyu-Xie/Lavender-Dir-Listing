@@ -1,5 +1,5 @@
 name: "Lavender Dir Listing"
-description: "A GitHub action for listing files of GitHub repositories."
+description: "A GitHub action for listing files of GitHub repositories, and then upload the result to GitHub Pages."
 
 author: "Acan"
 branding:
@@ -18,3 +18,9 @@ runs:
     - name: "Run Docker Image"
       shell: "bash"
       run: "docker run -v ${{ inputs.FOLDER }}:/source -v /dict:/folder acanxie/lavender-dir-listing:1.0.0"
+
+    - name: Upload Pages Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        name: github-pages
+        path: "/dict"
