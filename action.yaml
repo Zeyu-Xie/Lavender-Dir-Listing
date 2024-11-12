@@ -14,4 +14,4 @@ inputs:
 runs:
   using: "docker"
   image: "acanxie/lavender-dir-listing:1.0.0"
-  args: ["-v", "${{ github.workspace }}:/source", "-v", "/dict:/folder"]
+  args: ["-v", "${{ inputs.FOLDER }}:/source", "-v", "/dict:/folder"]
