@@ -34,7 +34,7 @@ runs:
       shell: "bash"
       run: |
         docker run 
-        -v ${{ env.FROM }}:/source -v ${{ env.DESTINATION }}:/folder acanxie/lavender-dir-listing:1.1.0
+        -v ${{ env.FROM }}:/source -v ${{ env.DESTINATION }}:/folder acanxie/lavender-dir-listing:1.2.0
         ${{ inputs.EMAIL }}
         ${{ inputs.WEBSITE_NAME }}
         ${{ inputs.WEBSITE_URL }}
